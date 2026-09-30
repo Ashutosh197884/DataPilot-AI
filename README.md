@@ -1,8 +1,12 @@
 # DataPilot AI
 
+[![CI](https://github.com/Ashutosh197884/DataPilot-AI/actions/workflows/ci.yml/badge.svg)](https://github.com/Ashutosh197884/DataPilot-AI/actions/workflows/ci.yml)
+
 **AI-powered data intelligence platform** — ask in plain English; DataPilot plans the
 workflow, gathers data from permitted sources, cleans and validates it, analyzes it
 deterministically, explains the results, and traces every insight back to its evidence.
+
+> 🌐 **Live demo:** see [DEPLOY.md](DEPLOY.md) — Railway (backend) + Vercel (frontend), ~10 minutes on free tiers.
 
 [![Watch the demo](https://img.youtube.com/vi/GEZ5cZDK9N0/hqdefault.jpg)](https://www.youtube.com/shorts/GEZ5cZDK9N0)
 
