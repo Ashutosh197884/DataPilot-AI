@@ -1,0 +1,29 @@
+# --- Python / backend ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+backend/datapilot.db
+backend/*.db
+backend/local_assets/
+backend/uvicorn.log
+
+# --- Node / frontend ---
+node_modules/
+frontend/dist/
+frontend/vite.log
+*.local
+
+# --- Env & secrets ---
+.env
+.env.local
+.env.*.local
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# --- Freebuff workspace metadata ---
+.freebuff/
