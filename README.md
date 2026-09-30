@@ -4,6 +4,10 @@
 workflow, gathers data from permitted sources, cleans and validates it, analyzes it
 deterministically, explains the results, and traces every insight back to its evidence.
 
+[![Watch the demo](https://img.youtube.com/vi/GEZ5cZDK9N0/hqdefault.jpg)](https://www.youtube.com/shorts/GEZ5cZDK9N0)
+
+▶ **[Watch the 60-second demo](https://www.youtube.com/shorts/GEZ5cZDK9N0)** — full pipeline: question → workflow → validation → dashboard → evidence.
+
 ```
 ASK → UNDERSTAND → PLAN → SOURCE → COLLECT → PROCESS → VALIDATE → ANALYZE → VISUALIZE → EXPLAIN → EVIDENCE
 ```
