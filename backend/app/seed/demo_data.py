@@ -63,15 +63,6 @@ EV_GROWTH: dict[str, float] = {  # annual growth multiplier
 }
 
 
-def _entity_variants(name: str) -> dict[str, int]:
-    """Planted variants: 'Hisar', 'HISAR', 'hisar ' style duplicates of same entity."""
-    return {
-        name: 1,
-        name.upper(): 1,
-        name.lower() + " ": 1,
-    }
-
-
 def generate_rainfall_wheat() -> Path:
     """Rainfall + wheat production per district-year, 2020–2025, with dirty rows."""
     out = DEMO_DIR / "haryana_rainfall_wheat.csv"

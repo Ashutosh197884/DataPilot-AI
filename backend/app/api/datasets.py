@@ -9,7 +9,6 @@ from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from fastapi.responses import FileResponse
 from sqlalchemy.orm import Session
 
-from ..config import settings
 from ..engines import validation as va
 from ..models import Dataset, Project, ValidationRun, get_db
 from ..services import cloudinary as cl

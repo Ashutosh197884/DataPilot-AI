@@ -5,7 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
-from ..models import DataSource, Project, Query, get_db
+from ..models import DataSource, Project, Query, WorkflowRun, get_db
 
 router = APIRouter()
 
@@ -48,9 +48,9 @@ def project_queries(project_id: str, db: Session = Depends(get_db)):
     out = []
     for q in queries:
         latest = (
-            db.query(WorkflowRunLite)
-            .filter(WorkflowRunLite.query_id == q.id)
-            .order_by(WorkflowRunLite.started_at.desc())
+            db.query(WorkflowRun)
+            .filter(WorkflowRun.query_id == q.id)
+            .order_by(WorkflowRun.started_at.desc())
             .first()
         )
         out.append(
@@ -63,9 +63,6 @@ def project_queries(project_id: str, db: Session = Depends(get_db)):
             }
         )
     return out
-
-
-from ..models import WorkflowRun as WorkflowRunLite  # noqa: E402
 
 
 @router.get("/sources")

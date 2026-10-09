@@ -81,9 +81,17 @@ class EventBus:
         return list(self._history.get(workflow_id, ()))
 
     @staticmethod
-    def sse_format(event: dict[str, Any]) -> str:
+    def sse_format(event: dict[str, Any]) -> dict[str, str]:
+        """Render an event as an SSE field mapping.
+
+        Returns a dict ({event, data}) rather than a pre-formatted string so
+        sse-starlette emits a proper `event:` line. Yielding a string would
+        cause sse-starlette to treat the whole payload as `data` and prefix
+        every embedded line with `data: `, which breaks the browser's
+        EventSource named-event dispatch.
+        """
         payload = {k: v for k, v in event.items() if k != "type"}
-        return f"event: {event['type']}\ndata: {json.dumps(payload, default=str)}\n\n"
+        return {"event": event["type"], "data": json.dumps(payload, default=str)}
 
 
 event_bus = EventBus()

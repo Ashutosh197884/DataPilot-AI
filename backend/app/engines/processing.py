@@ -70,7 +70,6 @@ def _coerce_year(col: pd.Series) -> tuple[pd.Series, int]:
 def clean_dataframe(df: pd.DataFrame) -> tuple[pd.DataFrame, list[dict[str, Any]]]:
     """Standard cleaning pass; returns (cleaned_df, transformation summaries)."""
     transformations: list[dict[str, Any]] = []
-    original_rows = len(df)
 
     # 1. Exact duplicate removal
     dupes = int(df.duplicated().sum())

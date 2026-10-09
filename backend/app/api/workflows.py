@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import asyncio
-import json
 
 from fastapi import APIRouter, Depends, HTTPException
 from sse_starlette.sse import EventSourceResponse
@@ -17,7 +16,6 @@ from ..models import (
     WorkflowStep,
     get_db,
 )
-from ..services import cloudinary as cl
 from ..services.events import EventBus, event_bus
 
 router = APIRouter()

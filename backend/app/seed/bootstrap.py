@@ -3,14 +3,10 @@ demo datasets (with bundled CSVs as assets, uploaded to Cloudinary if keys exist
 """
 from __future__ import annotations
 
-import datetime as dt
-import hashlib
-import json
 from pathlib import Path
 
 import pandas as pd
 
-from ..config import settings
 from ..engines import validation as va
 from ..models import Dataset, Project, SessionLocal, ValidationRun, init_db
 from ..services import cloudinary as cl
@@ -60,8 +56,6 @@ def _ensure_demo_datasets(db) -> None:
     ]:
         path = demo_data.generate_rainfall_wheat if fname.startswith("haryana") else demo_data.generate_ev_sales
         csv_path = path()
-        content = csv_path.read_bytes()
-        digest = hashlib.md5(content).hexdigest()[:8]
 
         existing = (
             db.query(Dataset)

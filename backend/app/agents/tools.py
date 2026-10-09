@@ -43,9 +43,6 @@ class ToolContext:
         path = dataset.local_path
         if not path and dataset.cloudinary_public_id and cl_configured():
             raw = fetch_asset_bytes(dataset.cloudinary_public_id)
-            import io
-
-            from ..services.cloudinary import store_local_copy
 
             tmp = store_local_copy_from_bytes(raw, dataset.name, dataset.file_type)
             path = str(tmp)
@@ -304,8 +301,6 @@ class ToolContext:
 
 def store_local_copy_from_bytes(raw: bytes, name: str, file_type: str):
     from pathlib import Path
-
-    from ..services.cloudinary import store_local_copy
     import tempfile
 
     suffix = ".xlsx" if file_type in {"xlsx", "xls"} else ".csv"

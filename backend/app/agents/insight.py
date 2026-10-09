@@ -29,8 +29,6 @@ def build_insights(
     """Returns (insights, kpi_cards). All values come from analysis_outputs."""
     insights: list[dict[str, Any]] = []
     kpis: list[dict[str, Any]] = []
-    topic = intent.get("topic")
-    region = intent.get("region") or "the selected region"
     a = analysis_outputs
 
     # ---------- KPI cards ----------

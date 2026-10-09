@@ -94,7 +94,6 @@ def extract_intent(text: str) -> dict[str, Any]:
             break
 
     # --- Years ---
-    year_range = re.findall(r"\b(19|20)\d{2}\b", t)
     years = [int(m) for m in re.findall(r"\b((?:19|20)\d{2})\b", t)]
     if len(years) >= 2:
         intent["start_year"], intent["end_year"] = min(years), max(years)
