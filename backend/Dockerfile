@@ -10,4 +10,5 @@ COPY app ./app
 COPY scripts ./scripts
 
 EXPOSE 8000
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# Read $PORT (Render/Railway inject it); fall back to 8000 for local runs.
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]

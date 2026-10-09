@@ -1,0 +1,20 @@
+# Render Blueprint — DataPilot AI backend
+# Point Render's "New → Blueprint" at this repo and it provisions the service
+# below. The FastAPI app seeds its SQLite DB on boot, so no disk is required
+# on the free plan (data resets on each deploy/restart; add a disk on a paid
+# plan for persistence).
+services:
+  - type: web
+    name: datapilot-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      # Allow the Vercel frontend origin (SSE/EventSource + any direct calls).
+      - key: CORS_ORIGINS
+        value: https://frontend-eight-swart-d2p9drtv66.vercel.app
+      # SQLite lives in the container FS (ephemeral on free plan).
+      - key: DATABASE_URL
+        value: sqlite:///./datapilot.db
